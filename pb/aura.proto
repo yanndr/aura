@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package pb;
+
+message Task {
+    string text = 1;
+    bool done = 2;
+}
+
+message TemperatureRequest {
+}
+
+message TemperatureReply {
+	double value = 1;
+	Unit unit=2;
+}
+
+message UpdateTemperatureRequest {
+	double value =1;
+	Unit init =2;
+}
+
+message UpdateTemperatureReply {
+}
+
+message Void {}
+
+service aura {
+    rpc GetTemperature(TemperatureRequest) returns (TemperatureReply) {}
+	rpc UpdateTemperature(UpdateTemperatureRequest) returns (UpdateTemperatureReply) {}
+}
+
+enum Unit {
+    KELVIN = 0;
+    CELSIUS = 1;
+    FAHRENHEIT =2;
+  }
