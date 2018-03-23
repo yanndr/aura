@@ -17,7 +17,7 @@ message TemperatureReply {
 
 message UpdateTemperatureRequest {
 	double value =1;
-	Unit init =2;
+	Unit unit =2;
 }
 
 message UpdateTemperatureReply {
